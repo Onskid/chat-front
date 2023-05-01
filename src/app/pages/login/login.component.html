@@ -17,11 +17,11 @@
     <mat-label>Password</mat-label>
     <input type="password" matInput [formControl]="passwordFormControl"
            placeholder="Ex. pat@example.com">
-    <mat-error *ngIf="userNameFormControl.hasError('required')">
+    <mat-error *ngIf="passwordFormControl.hasError('required')">
       Password is <strong>required</strong>
     </mat-error>
   </mat-form-field>
-  <p *ngIf="error.length>0" style="color:red">{{error}}</p>
+  <p *ngIf="errorMeesgae" style="color:red">{{errorMeesgae}}</p>
 
 </div>
   </mat-card-content>

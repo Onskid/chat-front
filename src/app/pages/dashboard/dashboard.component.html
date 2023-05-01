@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button >
+    <mat-icon>face</mat-icon>
+  </button>
+  <span>Welcome {{name|titlecase}} </span>
+
+  <button (click)="logout()" mat-icon-button style="position: absolute; right: 3rem;" >
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-card  style="margin: 2rem"  >
+  <mat-card-header>
+    <mat-card-title>With whom you want to discuss today ?</mat-card-title>
+  </mat-card-header>
+  <mat-card-content >
+
+    <mat-list role="list" *ngFor="let item of listofUsers">
+      <mat-list-item role="listitem">
+        <mat-icon matListItemIcon><span class="material-symbols-outlined">
+          account_circle
+          </span></mat-icon>
+
+       <div matListItemTitle style="display: flex;flex-direction: row;align-items: center;justify-content: center;">{{item.userName|titlecase}}
+         <button mat-icon-button color="primary" style="margin-left: 3rem">
+        <mat-icon>chat</mat-icon>
+      </button></div>
+
+
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+
+  </mat-card-actions>
+</mat-card>
