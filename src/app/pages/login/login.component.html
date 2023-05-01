@@ -1,0 +1,35 @@
+<mat-card  style="padding: 2rem"  [formGroup] ="loginFormGroup">
+  <mat-card-header>
+    <mat-card-title>Login / Register</mat-card-title>
+  </mat-card-header>
+  <mat-card-content >
+<div class="login-fields-container">
+  <mat-form-field >
+    <mat-label>User Name</mat-label>
+    <input type="text" matInput [formControl]="userNameFormControl"
+           placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="userNameFormControl.hasError('required')">
+      User Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field >
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [formControl]="passwordFormControl"
+           placeholder="Ex. pat@example.com">
+    <mat-error *ngIf="userNameFormControl.hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <p *ngIf="error.length>0" style="color:red">{{error}}</p>
+
+</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button [disabled]="!loginFormGroup.valid" color="primary"  (click)="login()" mat-button>login</button>
+    <button  [disabled]="!loginFormGroup.valid" color="accent"  (click)="signin()" mat-button>Register</button>
+
+  </mat-card-actions>
+</mat-card>
+
+

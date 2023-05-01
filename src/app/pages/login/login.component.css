@@ -1,0 +1,18 @@
+
+
+:host{
+  height: 100vh;
+  display: flex;
+   flex-direction: column;
+   justify-content: center;
+ align-items: center;
+}
+
+
+.login-fields-container{
+ margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
