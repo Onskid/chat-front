@@ -22,7 +22,7 @@
           </span></mat-icon>
 
        <div matListItemTitle style="display: flex;flex-direction: row;align-items: center;justify-content: center;">{{item.userName|titlecase}}
-         <button mat-icon-button color="primary" style="margin-left: 3rem">
+         <button  (click)="chat(item.userName)" mat-icon-button color="primary" style="margin-left: 3rem">
         <mat-icon>chat</mat-icon>
       </button></div>
 

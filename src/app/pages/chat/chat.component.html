@@ -1,1 +1,25 @@
-<p>chat works!</p>
+<mat-toolbar color="primary">
+  <button mat-icon-button  (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span> {{name|titlecase}} and {{chatWithName| titlecase}} discussion </span>
+</mat-toolbar>
+<div class="messages">
+
+    <div *ngFor="let m of messages" class="message-item" [style.background-color]="m.sender.userName==name?'cfe9ed':'#95afff'" [style.align-self]="m.sender.userName==name?'start':'end'">
+      {{m.content}}
+    </div>
+
+
+</div>
+<div class="sender">
+  <mat-form-field  style="width: 80%;">
+    <textarea  color="primary" matInput type="text" [(ngModel)]="message.content" style="width: 100%; max-width: 100%;  resize: none;" ></textarea>
+    <button *ngIf="message.content" matSuffix mat-icon-button aria-label="Clear" (click)="message.content=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button (click)="sendMessage()" style="width:4rem;height: 4rem;" mat-icon-button color="accent" aria-label="Example icon button with a delete icon">
+    <mat-icon style="font-size: 1.5rem;">send</mat-icon>
+  </button>
+</div>

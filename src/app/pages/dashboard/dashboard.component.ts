@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription, interval } from 'rxjs';
 import { AcessToken, UserMin } from 'src/app/models/AuthModels';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -19,14 +20,22 @@ export class DashboardComponent implements OnInit{
        this.name = token.user.userName
   }
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe({
+    this.userService.getAllUsers().pipe().subscribe({
       next: (res:Array<UserMin>)=> this.listofUsers = res.filter(e=>  e.userName != this.name)
     })
   }
+
 
   logout() {
  localStorage.clear()
  this.router.navigate(['login'])
     }
+
+
+
+
+    chat(user: string) {
+       this.router.navigate(['chat',user])
+      }
 
 }
